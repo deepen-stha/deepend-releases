@@ -21,17 +21,45 @@ JSON, text, PDF, API, and image tooling — into one window, on your machine.
 
 ## Install
 
-Grab the installer for your OS from the [latest release](https://github.com/deepen-stha/deepend-releases/releases/latest).
+### One-line install (recommended)
+
+```sh
+# Windows 10/11 — winget is built in
+winget install DeepenShrestha.Deepend
+
+# macOS — Homebrew picks the right .dmg for Apple Silicon or Intel
+brew tap deepen-stha/deepend
+brew install --cask --no-quarantine deepend
+```
+
+For Linux, pick the format that matches your distro from the table below — a `snap install deepend` one-liner is on the way.
+
+### Manual download
+
+Grab the installer from the [latest release](https://github.com/deepen-stha/deepend-releases/releases/latest):
 
 | OS                       | Download                              | How to install                                               |
 |--------------------------|---------------------------------------|--------------------------------------------------------------|
 | **Windows 10/11**        | `Deepend_*_x64-setup.exe` (recommended) or `.msi` | Double-click → "More info → Run anyway" past SmartScreen → install. |
-| **macOS** Apple Silicon  | `Deepend_*_aarch64.dmg`               | Open the `.dmg`, drag to Applications. First launch: right-click → Open. |
+| **macOS** Apple Silicon  | `Deepend_*_aarch64.dmg`               | Open the `.dmg`, drag to Applications. See first-launch note below. |
 | **macOS** Intel          | `Deepend_*_x64.dmg`                   | Same as above.                                               |
-| **Linux** Debian/Ubuntu  | `deepend_*_amd64.deb`                 | `sudo apt install ./deepend_*.deb`                           |
-| **Linux** Any distro     | `deepend_*_amd64.AppImage`            | `chmod +x deepend_*.AppImage && ./deepend_*.AppImage`        |
+| **Linux** Debian/Ubuntu  | `Deepend_*_amd64.deb`                 | `sudo apt install ./Deepend_*_amd64.deb`                     |
+| **Linux** Fedora/RHEL    | `Deepend-*.x86_64.rpm`                | `sudo dnf install ./Deepend-*.x86_64.rpm`                    |
+| **Linux** Any distro     | `Deepend_*_amd64.AppImage`            | `chmod +x Deepend_*_amd64.AppImage && ./Deepend_*_amd64.AppImage` |
 
-> **First-launch warnings are expected.** Deepend isn't yet code-signed — Windows shows a SmartScreen prompt, macOS asks you to right-click → Open the first time. Both are one-click bypasses. Linux has no warning. We're saving for the certs.
+### macOS first launch — clear the quarantine flag (one-time)
+
+Because Deepend isn't yet signed by Apple, macOS shows **"Deepend is damaged and can't be opened"** the first time you launch. The app is fine — macOS auto-flags every unsigned app downloaded from the internet that way. Run this once:
+
+```sh
+sudo xattr -rd com.apple.quarantine /Applications/Deepend.app
+```
+
+Enter your Mac password when prompted. From then on, double-click Deepend normally.
+
+> Tip: install with `brew install --cask --no-quarantine deepend` to skip this step entirely — the dialog never appears.
+
+> **First-launch warnings are expected.** Deepend isn't yet code-signed — Windows shows a SmartScreen prompt, macOS shows the "damaged" dialog (workaround above). Linux has no warning. Saving up for the certs.
 
 ---
 
