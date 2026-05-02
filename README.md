@@ -32,11 +32,43 @@ brew tap deepen-stha/deepend
 brew install --cask --no-quarantine deepend
 ```
 
-For Linux, pick the format that matches your distro from the table below — a `snap install deepend` one-liner is on the way.
+### Linux — pick your distro
 
-### Manual download
+#### Debian / Ubuntu / Mint / Pop!_OS — `.deb`
 
-Grab the installer from the [latest release](https://github.com/deepen-stha/deepend-releases/releases/latest):
+```bash
+wget https://github.com/deepen-stha/deepend-releases/releases/download/v0.1.1/Deepend_0.1.1_amd64.deb
+sudo apt install ./Deepend_0.1.1_amd64.deb
+deepend
+```
+
+To uninstall: `sudo apt remove deepend`
+
+#### Fedora / RHEL / Rocky / Alma — `.rpm`
+
+```bash
+wget https://github.com/deepen-stha/deepend-releases/releases/download/v0.1.1/Deepend-0.1.1-1.x86_64.rpm
+sudo dnf install ./Deepend-0.1.1-1.x86_64.rpm
+deepend
+```
+
+To uninstall: `sudo dnf remove deepend`
+
+#### Anything else (Arch, openSUSE, NixOS, distroless, WSL2 Ubuntu) — `.AppImage`
+
+Single self-contained binary. No install, no admin, just run it.
+
+```bash
+wget https://github.com/deepen-stha/deepend-releases/releases/download/v0.1.1/Deepend_0.1.1_amd64.AppImage
+chmod +x Deepend_0.1.1_amd64.AppImage
+./Deepend_0.1.1_amd64.AppImage
+```
+
+To uninstall: just delete the file.
+
+### Manual download — every platform
+
+Or browse the [latest release](https://github.com/deepen-stha/deepend-releases/releases/latest) and grab whichever installer matches:
 
 | OS                       | Download                              | How to install                                               |
 |--------------------------|---------------------------------------|--------------------------------------------------------------|
